@@ -22,6 +22,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
@@ -34,14 +37,14 @@ dependencies {
 }
 
 //项目主页
-def siteUrl = 'https://github.com/backkomyoung/CircleView'
+def siteUrl = 'https://github.com/jiayanqing/DevTools'
 //项目的git地址
-def gitUrl = 'https://github.com/backkomyoung/CircleView.git'
+def gitUrl = 'https://github.com/jiayanqing/DevTools.git'
 //发布到JCenter上的项目名字
 def libName = "BaseTools"
 
 //发布到组织名称名字，必须填写
-group = "com.jiayq"
+group = "com.jiayanqing"
 // 版本号，下次更新是只需要更改版本号即可
 version = "0.0.1"
 //上面配置后上传至JCenter后的编译路径是这样的： compile 'me.songning.CircleView:library:1.0.0'
@@ -96,8 +99,8 @@ install {
                 developers {
                     developer {
                         //开发者的个人信息
-                        id 'jiayq'
-                        name 'JiaYanQing'
+                        id 'lnjiayanqing'
+                        name 'lnjiayanqing'
                         email 'lnjiayanqing@gmail.com'
                     }
                 }
@@ -116,8 +119,10 @@ Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
 bintray {
-    user = properties.getProperty("bintray.user")    //读取 local.properties 文件里面的 bintray.user
-    key = properties.getProperty("bintray.apikey")   //读取 local.properties 文件里面的 bintray.apikey
+//    user = properties.getProperty("bintray.user")    //读取 local.properties 文件里面的 bintray.user
+//    key = properties.getProperty("bintray.apikey")   //读取 local.properties 文件里面的 bintray.apikey
+    user = "jiayanqing"
+    key = "401b2be25fdd24a99eed8afca1c6fbec8eded7d1"
     configurations = ['archives']
     pkg {
         //这里的repo值必须要和你创建Maven仓库的时候的名字一样

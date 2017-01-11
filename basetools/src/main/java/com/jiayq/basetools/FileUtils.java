@@ -1,4 +1,4 @@
-package com.jiayq.devtools.utils;
+package com.jiayq.basetools;
 
 import android.content.Context;
 import android.util.Log;
@@ -14,8 +14,10 @@ import java.io.OutputStream;
  */
 public class FileUtils {
 
-    /**
+  /**
      * Copy the application database files to external storage
+     * @param context
+     * @param packageName
      */
     public static void copyAppDatabaseFiles(Context context, String packageName) {
         try {
@@ -31,6 +33,11 @@ public class FileUtils {
         }
     }
 
+    /**
+     * @param context
+     * @param file
+     * @throws IOException
+     */
     private static void copyFileToExternalStorage(Context context, File file) throws IOException {
         FileInputStream fis = new FileInputStream(file);
         String outFileName = context.getExternalFilesDir(null) + "/" + file.getName();
